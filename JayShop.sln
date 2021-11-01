@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationCore", "Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{12C31E34-1223-44DA-A408-180E5CC99A60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{2FD4DB11-90C9-4C1A-A9DC-6B6FB4C794AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{2FD4DB11-90C9-4C1A-A9DC-6B6FB4C794AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A865307C-5C12-4756-B9A8-61CE73C13465} = {A8F9D20A-3839-4AFE-9209-B416A9D92C1F}
 		{12C31E34-1223-44DA-A408-180E5CC99A60} = {A8F9D20A-3839-4AFE-9209-B416A9D92C1F}
+		{2FD4DB11-90C9-4C1A-A9DC-6B6FB4C794AD} = {A8F9D20A-3839-4AFE-9209-B416A9D92C1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7B7865D-446B-4CED-A5D4-AB0998128523}
