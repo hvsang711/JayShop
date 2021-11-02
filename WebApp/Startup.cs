@@ -1,3 +1,5 @@
+using ApplicationCore.Interfaces;
+using ApplicationCore.Services;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
@@ -6,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.eShopWeb;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,7 +16,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using WebApp.Interfaces;
+using WebApp.Services;
 
 namespace WebApp
 {
@@ -43,6 +47,10 @@ namespace WebApp
                    .AddDefaultUI()
                    .AddEntityFrameworkStores<AppDbContext>()
                    .AddDefaultTokenProviders();
+
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+            services.AddScoped<ICatalogViewModelService, CatalogViewModelService>();
+            services.AddSingleton<IUriComposer>(new UriComposer(Configuration.Get<CatalogSettings>()));
 
             //services.AddDbContext<ApplicationDbContext>(options =>
             //    options.UseSqlServer(

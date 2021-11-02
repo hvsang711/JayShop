@@ -5,21 +5,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApp.Interfaces;
+using WebApp.ViewModels;
 
 namespace WebApp.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ICatalogViewModelService _catalogViewModelService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ICatalogViewModelService catalogViewModelService)
         {
-            _logger = logger;
+            _catalogViewModelService = catalogViewModelService;
         }
 
-        public void OnGet()
-        {
+        public CatalogIndexViewModel CatalogModel { get; set; } = new CatalogIndexViewModel();
 
+        public async Task OnGet(CatalogIndexViewModel catalogModel, int? pageId)
+        {
+            CatalogModel = await _catalogViewModelService.GetCatalogItems(pageId ?? 0, 10, catalogModel.BrandFilterApplied, catalogModel.TypesFilterApplied);
         }
     }
 }
